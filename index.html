@@ -29,6 +29,19 @@
     <div style="--i: 4"></div>
   </div>
 </div>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        .then(function(registration) {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(function(err) {
+          console.error('Service Worker registration failed:', err);
+        });
+    });
+  }
+</script>
 
 <script src="https://www.gstatic.com/firebasejs/11.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/11.7.1/firebase-messaging-compat.js"></script>
@@ -70,7 +83,7 @@ _flutter.buildConfig = {"engineRevision":"18b71d647a292a980abb405ac7d16fe1f0b204
   _flutter.loader.load({
     config: userConfig,
     serviceWorkerSettings: {
-      serviceWorkerVersion: "2890327821",
+      serviceWorkerVersion: "3776634573",
     },
     onEntrypointLoaded: async function(engineInitializer) {
       const appRunner = await engineInitializer.initializeEngine();
