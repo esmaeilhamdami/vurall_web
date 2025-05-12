@@ -32,7 +32,7 @@
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-       navigator.serviceWorker.register('/vurall_web/firebase-messaging-sw.js')
+       navigator.serviceWorker.register('firebase-messaging-sw.js')
         .then(function(registration) {
           console.log('Service Worker registered with scope:', registration.scope);
         })
@@ -41,24 +41,6 @@
         });
     });
   }
-</script>
-
-<script src="https://www.gstatic.com/firebasejs/11.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/11.7.1/firebase-messaging-compat.js"></script>
-
-<script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyD_e6AFrzFLauJ_Zv1NMlF1xE0byIWe3ds",
-      authDomain: "vurall-app.firebaseapp.com",
-      projectId: "vurall-app",
-      storageBucket: "vurall-app.firebasestorage.app",
-      messagingSenderId: "416792177745",
-      appId: "1:416792177745:web:3a66805cc6f4d5f7a61c70",
-      measurementId: "G-7HJCTG2XK1"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const messaging = firebase.messaging();
 </script>
 
 <script async>
@@ -83,7 +65,7 @@ _flutter.buildConfig = {"engineRevision":"18b71d647a292a980abb405ac7d16fe1f0b204
   _flutter.loader.load({
     config: userConfig,
     serviceWorkerSettings: {
-      serviceWorkerVersion: "4233658797",
+      serviceWorkerVersion: "1695392102",
     },
     onEntrypointLoaded: async function(engineInitializer) {
       const appRunner = await engineInitializer.initializeEngine();
