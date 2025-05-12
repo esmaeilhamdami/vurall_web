@@ -32,7 +32,7 @@
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/firebase-messaging-sw.js')
+       navigator.serviceWorker.register('/vurall_web/firebase-messaging-sw.js')
         .then(function(registration) {
           console.log('Service Worker registered with scope:', registration.scope);
         })
@@ -83,7 +83,7 @@ _flutter.buildConfig = {"engineRevision":"18b71d647a292a980abb405ac7d16fe1f0b204
   _flutter.loader.load({
     config: userConfig,
     serviceWorkerSettings: {
-      serviceWorkerVersion: "3776634573",
+      serviceWorkerVersion: "4233658797",
     },
     onEntrypointLoaded: async function(engineInitializer) {
       const appRunner = await engineInitializer.initializeEngine();
