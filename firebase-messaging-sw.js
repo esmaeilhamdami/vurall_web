@@ -1,28 +1,26 @@
-importScripts('https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/8.4.1/firebase-messaging.js');
+importScripts('https://www.gstatic.com/firebasejs/11.7.1/firebase-app-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/11.7.1/firebase-messaging-compat.js');
 
+firebase.initializeApp({
+      apiKey: "AIzaSyD_e6AFrzFLauJ_Zv1NMlF1xE0byIWe3ds",
+      authDomain: "vurall-app.firebaseapp.com",
+      projectId: "vurall-app",
+      storageBucket: "vurall-app.firebasestorage.app",
+      messagingSenderId: "416792177745",
+      appId: "1:416792177745:web:3a66805cc6f4d5f7a61c70",
+      measurementId: "G-7HJCTG2XK1"
+});
 
-  const firebaseConfig = {
-    apiKey: 'AIzaSyD_e6AFrzFLauJ_Zv1NMlF1xE0byIWe3ds',
-    appId: '1:416792177745:web:3a66805cc6f4d5f7a61c70',
-    messagingSenderId: '416792177745',
-    projectId: 'vurall-app',
-    authDomain: 'vurall-app.firebaseapp.com',
-    storageBucket: 'vurall-app.firebasestorage.app',
-    measurementId: 'G-7HJCTG2XK1',
+const messaging = firebase.messaging();
+
+// Optional: show notification when app is in background
+messaging.onBackgroundMessage((payload) => {
+  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+    body: payload.notification.body,
+    icon: '/icons/Icon-192.png'
   };
-  firebase.initializeApp(firebaseConfig);
-  const messaging = firebase.messaging();
 
-
-  messaging.onBackgroundMessage(function(payload) {
-    console.log('Received background message ', payload);
-
-    const notificationTitle = payload.notification.title;
-    const notificationOptions = {
-      body: payload.notification.body,
-    };
-
-    self.registration.showNotification(notificationTitle,
-      notificationOptions);
-  });
+  self.registration.showNotification(notificationTitle, notificationOptions);
+});
